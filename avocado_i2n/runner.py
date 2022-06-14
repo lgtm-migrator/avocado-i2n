@@ -231,6 +231,7 @@ class CartesianRunner(RunnerInterface):
         assert len(shared_roots) == 1, "There can be only exactly one starting node (shared root)"
         root = shared_roots[0]
 
+        log.getLogger('graph').level = log.DEBUG
         if log.getLogger('graph').level <= log.DEBUG:
             traverse_dir = os.path.join(self.job.logdir, "graph_traverse")
             if not os.path.exists(traverse_dir):
