@@ -239,6 +239,7 @@ def full(config, tag=""):
         # states are removed, skipping any state restoring for better performance
         setup_dict = config["param_dict"].copy()
         setup_dict.update({"get_mode": "ia", "set_mode": "ff", "unset_mode": "ra"})
+        #to_traverse = [r.run_traversal(graph, params, s) for s in r.slots]
         to_traverse = r.run_traversal(create_graph, setup_dict, "")
         asyncio.get_event_loop().run_until_complete(asyncio.wait_for(to_traverse, r.job.timeout or None))
 
